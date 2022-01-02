@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,12 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [PagesController::class, 'index']);
+
+
+Route::get('/admin/dashboard', [PagesController::class, 'dashboard'])->name('admin.dashboard');
+
+Route::get('/admin/main', [PagesController::class, 'main'])->name('admin.main');
+
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
