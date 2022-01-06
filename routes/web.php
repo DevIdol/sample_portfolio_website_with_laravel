@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainPagesController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ServicePagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,7 @@ Route::get('/admin/dashboard', [PagesController::class, 'dashboard'])->name('adm
 
 Route::get('/admin/main', [MainPagesController::class, 'index'])->name('admin.main');
 Route::put('/admin/main', [MainPagesController::class, 'update'])->name('admin.main.update');
+Route::get('/admin/services/create', [ServicePagesController::class, 'create'])->name('admin.services.create');
+Route::post('/admin/services/store', [ServicePagesController::class, 'store'])->name('admin.services.store');
 
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
