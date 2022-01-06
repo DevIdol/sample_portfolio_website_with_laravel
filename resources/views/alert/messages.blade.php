@@ -2,7 +2,7 @@
     @foreach ($errors->all() as $error)
         <div class="alert alert-danger alert-dismissible">
             <strong>Error!</strong>{{ $error }}
-            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>
         </div>
     @endforeach
 @endif
@@ -15,8 +15,8 @@
 @endif
 
 @if (session('success'))
-    <div class="alert alert-danger alert-dismissible">
-        <strong>Error!</strong>{{ session('success') }}
+    <div class="alert alert-success alert-dismissible">
+        <strong>Success!</strong>{{ session('success') }}
         <button type="button" class="close" data-dismiss="alert">&times;</button>
     </div>
 @endif
