@@ -43,7 +43,7 @@
         <div class="container">
             <div class="masthead-subheading"> {{ $main['sub_title'] }} </div>
             <div class="masthead-heading text-uppercase"> {{ $main->title }} </div>
-            <a class="btn btn-primary btn-xl text-uppercase" href=" {{ url($main->resume) }} ">Tell Me More</a>
+            <a class="btn btn-primary btn-xl text-uppercase" href=" {{ url($main->resume) }} ">Download PDF</a>
         </div>
     </header>
     <!-- Services-->

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainPagesController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ServicePagesController;
+use App\Http\Controllers\PortfolioPagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,16 +26,29 @@ Auth::routes();
 
 Route::get('/', [PagesController::class, 'index']);
 
+Route::prefix('admin')->group(function () {
 
-Route::get('/admin/dashboard', [PagesController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/main', [MainPagesController::class, 'index'])->name('admin.main');
+    Route::put('/main', [MainPagesController::class, 'update'])->name('admin.main.update');
 
-Route::get('/admin/main', [MainPagesController::class, 'index'])->name('admin.main');
-Route::put('/admin/main', [MainPagesController::class, 'update'])->name('admin.main.update');
-Route::get('/admin/services/create', [ServicePagesController::class, 'create'])->name('admin.services.create');
-Route::post('/admin/services/store', [ServicePagesController::class, 'store'])->name('admin.services.store');
-Route::get('/admin/services/list', [ServicePagesController::class, 'list'])->name('admin.services.list');
-Route::get('/admin/services/edit/{id}', [ServicePagesController::class, 'edit'])->name('admin.services.edit');
-Route::post('/admin/services/update/{id}', [ServicePagesController::class, 'update'])->name('admin.services.update');
-Route::delete('/admin/services/destroy/{id}', [ServicePagesController::class, 'destroy'])->name('admin.services.destroy');
+    #Services
+    #===========
+    Route::get('/services/create', [ServicePagesController::class, 'create'])->name('admin.services.create');
+    Route::post('/services/store', [ServicePagesController::class, 'store'])->name('admin.services.store');
+    Route::get('/services/list', [ServicePagesController::class, 'list'])->name('admin.services.list');
+    Route::get('/services/edit/{id}', [ServicePagesController::class, 'edit'])->name('admin.services.edit');
+    Route::post('/services/update/{id}', [ServicePagesController::class, 'update'])->name('admin.services.update');
+    Route::delete('/services/destroy/{id}', [ServicePagesController::class, 'destroy'])->name('admin.services.destroy');
+
+    #Portfolios
+    #=============
+    Route::get('/portfolios/create', [PortfolioPagesController::class, 'create'])->name('admin.portfolios.create');
+    Route::put('/portfolios/store', [PortfolioPagesController::class, 'store'])->name('admin.portfolios.store');
+    Route::get('/portfolios/list', [PortfolioPagesController::class, 'list'])->name('admin.portfolios.list');
+    Route::get('/portfolios/edit/{id}', [PortfolioPagesController::class, 'edit'])->name('admin.portfolios.edit');
+    Route::post('/portfolios/update/{id}', [PortfolioPagesController::class, 'update'])->name('admin.portfolios.update');
+    Route::delete('/portfolios/destroy/{id}', [PortfolioPagesController::class, 'destroy'])->name('admin.portfolios.destroy');
+});
 
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
