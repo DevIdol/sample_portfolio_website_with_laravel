@@ -15,6 +15,8 @@
                         <th scope="col">Icon</th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,7 +26,18 @@
                                 <th scope="row">{{ $service->id }} </th>
                                 <td>{{ $service->icon }}</td>
                                 <td>{{ $service->title }} </td>
-                                <td>{{ $service->description }} </td>
+                                <td>{{ Str::limit(strip_tags($service->description), 40) }} </td>
+                                <td>
+                                    <a href="{{ route('admin.services.edit', $service->id) }}"
+                                        class="btn btn-primary">Edit</a>
+                                </td>
+                                <td>
+                                    <form action="{{ route('admin.services.destroy', $service->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" name="submit" value="Delete" class="btn btn-danger">
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
 
@@ -34,5 +47,5 @@
             </table>
         </div>
     </main>
-   
+
 @endsection

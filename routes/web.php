@@ -33,5 +33,8 @@ Route::put('/admin/main', [MainPagesController::class, 'update'])->name('admin.m
 Route::get('/admin/services/create', [ServicePagesController::class, 'create'])->name('admin.services.create');
 Route::post('/admin/services/store', [ServicePagesController::class, 'store'])->name('admin.services.store');
 Route::get('/admin/services/list', [ServicePagesController::class, 'list'])->name('admin.services.list');
+Route::get('/admin/services/edit/{id}', [ServicePagesController::class, 'edit'])->name('admin.services.edit');
+Route::post('/admin/services/update/{id}', [ServicePagesController::class, 'update'])->name('admin.services.update');
+Route::delete('/admin/services/destroy/{id}', [ServicePagesController::class, 'destroy'])->name('admin.services.destroy');
 
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
