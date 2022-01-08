@@ -8,6 +8,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ServicePagesController;
 use App\Http\Controllers\PortfolioPagesController;
 use App\Http\Controllers\AboutPagesController;
+use App\Http\Controllers\ContactFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ use App\Http\Controllers\AboutPagesController;
 Auth::routes();
 
 
-Route::get('/', [PagesController::class, 'index']);
+Route::get('/', [PagesController::class, 'index'])->name('index');
 
 Route::prefix('admin')->group(function () {
 
@@ -61,5 +62,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/abouts/update/{id}', [AboutPagesController::class, 'update'])->name('admin.abouts.update');
     Route::delete('/abouts/destroy/{id}', [AboutPagesController::class, 'destroy'])->name('admin.abouts.destroy');
 });
+
+Route::post('/contact', [ContactFormController::class, 'store'])->name('contact.store');
 
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
