@@ -143,6 +143,6 @@ class PortfolioPagesController extends Controller
         @unlink(public_path($portfolio->small_img));
         $portfolio->delete();
 
-        return redirect()->route('admin.portfolios.list')->with('success', 'Portfolio Delted Successfully.');
+        return redirect()->route('admin.portfolios.list')->with('success', 'Portfolio Deleted Successfully.');
     }
 }

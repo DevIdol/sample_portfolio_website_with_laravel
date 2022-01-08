@@ -7,6 +7,7 @@ use App\Http\Controllers\MainPagesController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ServicePagesController;
 use App\Http\Controllers\PortfolioPagesController;
+use App\Http\Controllers\AboutPagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,16 @@ Route::prefix('admin')->group(function () {
     Route::get('/portfolios/edit/{id}', [PortfolioPagesController::class, 'edit'])->name('admin.portfolios.edit');
     Route::post('/portfolios/update/{id}', [PortfolioPagesController::class, 'update'])->name('admin.portfolios.update');
     Route::delete('/portfolios/destroy/{id}', [PortfolioPagesController::class, 'destroy'])->name('admin.portfolios.destroy');
+
+
+    #Abouts
+    #=============
+    Route::get('/abouts/create', [AboutPagesController::class, 'create'])->name('admin.abouts.create');
+    Route::put('/abouts/store', [AboutPagesController::class, 'store'])->name('admin.abouts.store');
+    Route::get('/abouts/list', [AboutPagesController::class, 'list'])->name('admin.abouts.list');
+    Route::get('/abouts/edit/{id}', [AboutPagesController::class, 'edit'])->name('admin.abouts.edit');
+    Route::post('/abouts/update/{id}', [AboutPagesController::class, 'update'])->name('admin.abouts.update');
+    Route::delete('/abouts/destroy/{id}', [AboutPagesController::class, 'destroy'])->name('admin.abouts.destroy');
 });
 
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
