@@ -30,7 +30,7 @@ Route::get('/', [PagesController::class, 'index'])->name('index');
 
 Route::prefix('admin')->group(function () {
 
-    Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/dashboard', [MainPagesController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/main', [MainPagesController::class, 'index'])->name('admin.main');
     Route::put('/main', [MainPagesController::class, 'update'])->name('admin.main.update');
 
