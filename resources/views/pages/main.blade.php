@@ -22,13 +22,13 @@
                     <div class="form-group col-md-4 mt-3">
                         <div class="mb-3">
                             <label for="title">Title</label>
-                            <input type="text" class="form-control" id="title" name="title" value=" {{(@main->title)? $main->title }} : 'The Title' ">
+                            <input type="text" class="form-control" id="title" name="title" value=" {{$main->title }} ">
 
                         </div>
                         <div class="mb-3">
                             <label for="sub_title">Sub Title</label>
                             <input type="text" class="form-control" id="sub_title" name="sub_title"
-                                value=" {{(@main->sub_title)? $main->sub_title : 'Sub Title' }} ">
+                                value=" {{$main->sub_title }} ">
                         </div>
                         <div>
                             <h4>Upload Resume</h4>

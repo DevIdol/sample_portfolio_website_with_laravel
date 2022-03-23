@@ -22,7 +22,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..." /></a>
+            <a class="navbar-brand" href="#page-top">DevIdol</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -40,7 +40,7 @@
     </nav>
     <!-- Masthead-->
     <header class="masthead"
-        style="  background-image: url( {{ (@$main->bg_img) ? url($main->bg_img) : asset('assets/img/bg_img.jpg') }} )">
+        style="  background-image: url($main->bg_img) url($main->bg_img )">
         <div class="container">
             <div class="masthead-subheading"> {{ $main->sub_title  }} </div>
             <div class="masthead-heading text-uppercase"> {{  $main->title}} </div>
@@ -282,8 +282,7 @@
                 role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg"
-                                alt="Close modal" /></div>
+                        <div class="close-modal" data-bs-dismiss="modal"><span>&times;</span></div>
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
